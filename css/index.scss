@@ -3,13 +3,7 @@
 //修改 engine.rb 文件 
 //添加Encoding.default_external = Encoding.find('utf-8')
 
-$toolbar-size:52px;
 
-//整理相同的代码
-.toolbar-item,.toolbar-layer{
-	background-image: url(../img/toolbar.png);
-	background-repeat: no-repeat;
-}
 
 //通过@mixin定义函数
 @mixin toolbar-item($pos,$hoverPos){
@@ -51,8 +45,23 @@ $toolbar-size:52px;
 // 	filter:alpha(opacity=$opacity * 100);
 // }
 
-//通过@import引入_mixin
+//把所有的函数放入_mixin.scss中
+//通过@import引入_mixin，引入时把前面的"_"及后缀名都去掉
 @import "mixin";
+
+
+
+//下面的所有代码都已经存放在_toolbar.scss文件中了，可以直接通过 @import "toolbar"来引入
+//@import "toolbar";
+
+
+$toolbar-size:52px;
+
+//整理相同的代码
+.toolbar-item,.toolbar-layer{
+	background-image: url(../img/toolbar.png);
+	background-repeat: no-repeat;
+}
 
 .toolbar{
 	position: fixed;
