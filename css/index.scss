@@ -1,0 +1,82 @@
+//支持中文：
+//Koala\rubygems\gems\sass-3.4.9\lib\sass
+//修改 engine.rb 文件 
+//添加Encoding.default_external = Encoding.find('utf-8')
+
+$toolbar-size:52px;
+
+.toolbar{
+	position: fixed;
+	left:50%;
+	bottom:5px;
+	margin-left:-$toolbar-size / 2 ;
+
+}
+.toolbar-item{
+	position: relative;
+	display: block;
+	width: $toolbar-size;
+	height: $toolbar-size;
+	background-image: url(../img/toolbar.png);
+	background-repeat: no-repeat;
+	margin-top: 1px;
+	transition:background-position 1s;//
+
+	&:hover{
+		.toolbar-layer{
+			opacity: 1;
+			filter:alpha(opacity=100);
+			transform:scale(1);
+		}
+	}
+
+}
+.toolbar-item-weixin{
+	background-position: 0 -798px;
+
+	&:hover{
+		background-position: 0 -860px;
+	}
+	.toolbar-layer{
+		height: 212px;
+		background-position: 0 0;
+	}
+}
+.toolbar-item-feedback{
+	background-position: 0 -426px;
+
+	&:hover{
+		background-position: 0 -488px;
+	}
+}
+.toolbar-item-app{
+	background-position: 0 -550px;
+
+	&:hover{
+		background-position: 0 -612px;
+	}
+	.toolbar-layer{
+		height: 194px;
+		background-position: 0 -222px;
+	}
+}
+.toolbar-item-top{
+	background-position: 0 -674px;
+
+	&:hover{
+		background-position: 0 -736px;
+	}
+}
+.toolbar-layer{
+	position: absolute;
+	right: $toolbar-size - 6;
+	bottom: -10px;
+	width: 172px;
+	background-image: url(../img/toolbar.png);
+	background-repeat: no-repeat;
+	opacity: 0;					//不透明度为0，即为完全透明
+	filter:alpha(opacity=0);	//兼容ie
+	transform-origin: 95% 95%;//设置过渡变换的基准点，如果不设置默认为图片的中心点
+	transform:scale(0.01);  	//变换大小为原来的0.01
+	transition:all 1s;
+}
